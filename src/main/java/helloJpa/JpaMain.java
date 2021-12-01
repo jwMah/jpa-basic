@@ -20,9 +20,6 @@ public class JpaMain {
             member.setName("jaewan");
             em.persist(member);
             em.flush();
-            for (Member member : result) {
-                System.out.println("member.getName() = " + member.getName());
-            }
             
             //findMember.setName("helloJPA");
 

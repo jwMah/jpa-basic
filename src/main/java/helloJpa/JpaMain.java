@@ -15,14 +15,9 @@ public class JpaMain {
         tx.begin();
 
         try {
-//            Member member = new Member();
-//            member.setId(3L);
-//            member.setName("jaewan");
-//            em.persist(member);
-//            em.flush();
-//
-//            //findMember.setName("helloJPA");
-//
+            Order order = new Order();
+
+
             tx.commit();
         } catch (Exception e) {
             tx.rollback();

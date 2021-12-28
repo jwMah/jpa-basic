@@ -1,7 +1,9 @@
 package helloJpa;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 public class Member {
@@ -11,8 +13,11 @@ public class Member {
     private Long id;
     private String name;
     private String city;
-    private String streeet;
+    private String street;
     private String zipcode;
+
+    @OneToMany(mappedBy = "member")
+    private List<Order> orders = new ArrayList<>();
 
     public Long getId() {
         return id;
@@ -38,12 +43,12 @@ public class Member {
         this.city = city;
     }
 
-    public String getStreeet() {
-        return streeet;
+    public String getStreet() {
+        return street;
     }
 
-    public void setStreeet(String streeet) {
-        this.streeet = streeet;
+    public void setStreet(String street) {
+        this.street = street;
     }
 
     public String getZipcode() {

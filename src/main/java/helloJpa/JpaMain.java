@@ -16,10 +16,10 @@ public class JpaMain {
         tx.begin();
 
         try {
-            Member member = new Member();
-            member.setCreateBy("kim");
-            member.setCreatedDate(LocalDateTime.now());
-            em.persist(member);
+            Book book = new Book();
+            book.setName("jpa");
+            book.setAuthor("jaewan");
+            em.persist(book);
 
             tx.commit();
         } catch (Exception e) {

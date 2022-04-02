@@ -17,7 +17,7 @@ public class Member extends BaseEntity{
     private String zipcode;
 
 
-    @OneToMany(mappedBy = "member")
+    @OneToMany(mappedBy = "member", fetch = FetchType.LAZY)
     private List<Order> orders = new ArrayList<>();
 
     public Long getId() {

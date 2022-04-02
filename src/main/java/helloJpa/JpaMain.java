@@ -16,10 +16,17 @@ public class JpaMain {
         tx.begin();
 
         try {
-            Book book = new Book();
-            book.setName("jpa");
-            book.setAuthor("jaewan");
-            em.persist(book);
+            Parent parent = new Parent();
+            Child child1 = new Child();
+            Child child2 = new Child();
+
+            parent.addChild(child1);
+            parent.addChild(child2);
+
+            em.persist(parent);
+            //em.persist(child1);
+            //em.persist(child2);
+
 
             tx.commit();
         } catch (Exception e) {

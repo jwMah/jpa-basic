@@ -8,40 +8,22 @@ import java.util.*;
 public class Member extends BaseEntity{
     @Id
     @GeneratedValue
-    @Column(name = "MEMBER_ID")
     private Long id;
     private String name;
+    private int age;
 
-    @Embedded
-    private Address address;
+    @ManyToOne
+    @JoinColumn(name = "team_id")
+    private Team team;
 
-//    @ElementCollection
-//    @CollectionTable(name = "FAVORITE_FOOD", joinColumns =
-//            @JoinColumn(name = "MEMBER_ID")
-//    )
-//    @Column(name = "FOOD_NAME")
-//    private Set<String> favoriteFoods = new HashSet<>();
-//
-//    @ElementCollection
-//    @CollectionTable(name = "ADDRESS", joinColumns =
-//            @JoinColumn(name = "MEMBER_ID")
-//    )
-//    private List<Address> addressHistory = new ArrayList<>();
-
-
-    @Embedded
-    private Period period;
-
-    @OneToMany(mappedBy = "member", fetch = FetchType.LAZY)
-    private List<Order> orders = new ArrayList<>();
-
-    public Period getPeriod() {
-        return period;
+    public Team getTeam() {
+        return team;
     }
 
-    public void setPeriod(Period period) {
-        this.period = period;
+    public void setTeam(Team team) {
+        this.team = team;
     }
+
 
     public Long getId() {
         return id;
@@ -59,13 +41,11 @@ public class Member extends BaseEntity{
         this.name = name;
     }
 
-    //    private Integer age;
-//    @Enumerated(EnumType.STRING)
-//    private RoleType roleType;
-//    @Temporal(TemporalType.TIMESTAMP)
-//    private Date createdDate;
-//    @Temporal(TemporalType.TIMESTAMP)
-//    private Date lastModifiedDate;
-//    @Lob
-//    private String description;
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
 }
